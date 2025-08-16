@@ -19,7 +19,6 @@ class BlogPostRequest extends FormRequest
     {
         return [
             'post-title' => 'required',
-            'author-name' => 'required',
             'body' => 'required'
         ];
     }
@@ -27,7 +26,6 @@ class BlogPostRequest extends FormRequest
     public function messages(){
         return[
              'post-title.required' => 'Field is required.',
-            'author-name.required' => 'Field is required.',
             'body.required' => 'Field is required.'
         ];
     }

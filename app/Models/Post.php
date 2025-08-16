@@ -12,10 +12,14 @@ class Post extends Model
     protected $keyType = "string";
     public $incrementing = "false";
     protected $table = 'posts';
-    protected $fillable = ['title', 'body', 'published', 'author'];
+    protected $fillable = ['title', 'body', 'published', 'author', 'user_id'];
 
     protected $guarded = ['id'];
 
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    
     public function comments(){
         return $this->hasMany(Comment::class);
     }

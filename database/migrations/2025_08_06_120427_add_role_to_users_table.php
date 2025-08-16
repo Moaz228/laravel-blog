@@ -6,10 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::table('post_tag', function (Blueprint $table) {
-            $table->unique(['post_id', 'tag_id']);
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('role')->default('viewer');
         });
     }
 
@@ -18,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('post_tag', function (Blueprint $table) {
-            $table->dropUnique('post_tag_post_id_tag_id_unique');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role');
         });
     }
 };
